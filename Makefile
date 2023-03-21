@@ -6,7 +6,7 @@
 #    By: akasiota <akasiota@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/08 20:26:47 by akasiota      #+#    #+#                  #
-#    Updated: 2023/03/15 18:08:16 by akasiota      ########   odam.nl          #
+#    Updated: 2023/03/21 11:46:28 by akasiota      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ HDRFILES := libft.h \
 			get_next_line.h \
 			ft_printf.h
 CFLAGS := -Wall -Wextra -Werror -I./
-LFLAGS := -crs -v
+LFLAGS := -crs
 # OBJDIR := ./obj_dir
 SRCFILES := ft_atoi.c \
 			ft_bzero.c \
@@ -80,19 +80,19 @@ OBJFILES := $(SRCFILES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJFILES)
-	$(AR) $(LFLAGS) $@ $?
+	@$(AR) $(LFLAGS) $@ $? && printf "Building $(notdir $@)\n"
 
 # $(OBJDIR):
 # 	mkdir obj_dir
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) -o $@ $?  
+	@$(CC) -c $(CFLAGS) -o $@ $? && printf "Compiling $(notdir $<)\n"
 
 clean:
-	rm -f $(OBJFILES) $(BONOBJFILES)
+	@rm -f $(OBJFILES) $(BONOBJFILES)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
