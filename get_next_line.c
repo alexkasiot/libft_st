@@ -6,11 +6,11 @@
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 00:41:47 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/03/25 19:17:28 by akasiota      ########   odam.nl         */
+/*   Updated: 2023/03/25 19:43:26 by akasiota      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include <libft.h>
 
 static char	*ft_new_buffer(char *line)
 {
