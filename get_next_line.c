@@ -6,11 +6,11 @@
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 00:41:47 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/03/15 18:08:51 by akasiota      ########   odam.nl         */
+/*   Updated: 2023/03/25 19:17:28 by akasiota      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "get_next_line.h"
 
 static char	*ft_new_buffer(char *line)
 {
@@ -23,7 +23,7 @@ static char	*ft_new_buffer(char *line)
 		i++;
 	if (line[i] == '\n')
 		i++;
-	sub = ft_calloc_gnl((ft_strlen(line) - i + 1), sizeof(char));
+	sub = ft_calloc((ft_strlen(line) - i + 1), sizeof(char));
 	if (sub == NULL)
 		return (free(line), NULL);
 	k = 0;
@@ -51,7 +51,7 @@ static char	*get_return_line(char *line, size_t i)
 		}	
 		i = i + 1;
 	}
-	return_line = ft_calloc_gnl((i + 1), sizeof(char));
+	return_line = ft_calloc((i + 1), sizeof(char));
 	if (return_line == NULL)
 		return (free(line), NULL);
 	k = 0;
@@ -71,15 +71,15 @@ static char	*get_the_line(char *line, int fd)
 	ssize_t	read_bytes;
 
 	read_bytes = 1;
-	while (!ft_strchr_gnl(line, '\n') && read_bytes != 0)
+	while (!ft_strchr(line, '\n') && read_bytes != 0)
 	{
-		line_buffer = ft_calloc_gnl((BUFFER_SIZE + 1), sizeof(char));
+		line_buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 		if (line_buffer == NULL)
 			return (free(line), NULL);
 		read_bytes = read(fd, line_buffer, BUFFER_SIZE);
 		if (read_bytes < 0)
 			return (free(line), free(line_buffer), NULL);
-		line = ft_strjoin_gnl(line, line_buffer);
+		line = ft_strjoin(line, line_buffer);
 		if (line == NULL || *line == 0)
 			return (free(line), NULL);
 	}
@@ -88,28 +88,28 @@ static char	*get_the_line(char *line, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	*line;
+	static char	*line[OPEN_MAX + 1];
 	char		*return_line;
 	size_t		i;
 
 	i = 0;
 	if (BUFFER_SIZE <= 0 || fd < 0 || fd > OPEN_MAX)
 		return (NULL);
-	if (line == NULL)
+	if (line[fd] == NULL)
 	{
-		line = malloc(1 * sizeof(char));
-		if (line == NULL)
+		line[fd] = malloc(1 * sizeof(char));
+		if (line[fd] == NULL)
 			return (NULL);
-		line[0] = 0;
+		line[fd][0] = 0;
 	}
-	line = get_the_line(line, fd);
-	if (line == NULL)
+	line[fd] = get_the_line(line[fd], fd);
+	if (line[fd] == NULL)
 		return (NULL);
-	return_line = get_return_line(line, i);
+	return_line = get_return_line(line[fd], i);
 	if (return_line == NULL)
-		return (line = NULL, NULL);
-	line = ft_new_buffer(line);
-	if (line == NULL)
+		return (line[fd] = NULL, NULL);
+	line[fd] = ft_new_buffer(line[fd]);
+	if (line[fd] == NULL)
 		return (free(return_line), NULL);
 	return (return_line);
 }
