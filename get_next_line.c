@@ -6,7 +6,7 @@
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 00:41:47 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/04/20 01:22:04 by lotse         ########   odam.nl         */
+/*   Updated: 2023/04/20 01:25:42 by lotse         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,21 +95,21 @@ char	*get_next_line(int fd)
 	i = 0;
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
-	if (line[fd] == NULL)
+	if (line == NULL)
 	{
-		line[fd] = malloc(1 * sizeof(char));
-		if (line[fd] == NULL)
+		line = malloc(1 * sizeof(char));
+		if (line == NULL)
 			return (NULL);
-		line[fd][0] = 0;
+		line[0] = 0;
 	}
-	line[fd] = get_the_line(line[fd], fd);
-	if (line[fd] == NULL)
+	line = get_the_line(line, fd);
+	if (line == NULL)
 		return (NULL);
-	return_line = get_return_line(line[fd], i);
+	return_line = get_return_line(line, i);
 	if (return_line == NULL)
-		return (line[fd] = NULL, NULL);
-	line[fd] = ft_new_buffer(line[fd]);
-	if (line[fd] == NULL)
+		return (line = NULL, NULL);
+	line = ft_new_buffer(line);
+	if (line == NULL)
 		return (free(return_line), NULL);
 	return (return_line);
 }
