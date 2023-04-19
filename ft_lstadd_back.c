@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_back_bonus.c                             :+:    :+:            */
+/*   ft_lstadd_back.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/04 16:41:32 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/01/08 17:41:45 by akasiota      ########   odam.nl         */
+/*   Updated: 2023/04/20 01:26:54 by lotse         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int		i;
 	t_list	*sub;
 
 	sub = *lst;
@@ -25,7 +24,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	i = 0;
 	while ((*lst)->next != NULL)
 	{
 		(*lst) = (*lst)->next;
