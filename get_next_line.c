@@ -6,7 +6,7 @@
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 00:41:47 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/04/20 00:46:08 by lotse         ########   odam.nl         */
+/*   Updated: 2023/04/20 01:22:04 by lotse         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,12 @@ static char	*get_the_line(char *line, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	*line[FOPEN_MAX + 1];
+	static char	*line;
 	char		*return_line;
 	size_t		i;
 
 	i = 0;
-	if (BUFFER_SIZE <= 0 || fd < 0 || fd > FOPEN_MAX)
+	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
 	if (line[fd] == NULL)
 	{
