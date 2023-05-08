@@ -6,7 +6,7 @@
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 00:41:47 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/04/20 01:25:42 by lotse         ########   odam.nl         */
+/*   Updated: 2023/05/09 01:41:53 by lotse         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static char	*get_the_line(char *line, int fd)
 		read_bytes = read(fd, line_buffer, BUFFER_SIZE);
 		if (read_bytes < 0)
 			return (free(line), free(line_buffer), NULL);
-		line = ft_strjoin(line, line_buffer);
+		line = ft_strjoin_gnl(line, line_buffer);
 		if (line == NULL || *line == 0)
 			return (free(line), NULL);
 	}
