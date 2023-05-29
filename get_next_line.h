@@ -6,7 +6,7 @@
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/08 20:28:11 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/03/15 18:06:19 by akasiota      ########   odam.nl         */
+/*   Updated: 2023/05/29 21:55:42 by akasiota      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 4096
 # endif
 
 // Headers
