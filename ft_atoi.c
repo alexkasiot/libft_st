@@ -6,7 +6,7 @@
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 21:49:18 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/05/30 15:42:01 by akasiota      ########   odam.nl         */
+/*   Updated: 2023/05/30 16:57:17 by akasiota      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_isspace(char c)
 		return (0);
 }
 
-static int	ft_atoi_calc(char *s, long long *i, long long *n)
+static void	ft_atoi_calc(const char *s, long long *i, long long *n)
 {
 	while (ft_isspace(*s) == 1)
 		s++;
@@ -50,7 +50,7 @@ int	ft_atoi(const char *s)
 	long long	i;
 	long long	n;
 	long long	res;
-	char		*sub;
+	const char	*sub;
 
 	i = 0;
 	n = 1;
