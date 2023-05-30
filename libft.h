@@ -6,7 +6,7 @@
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 18:27:45 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/03/15 18:27:07 by akasiota      ########   odam.nl         */
+/*   Updated: 2023/05/30 15:40:17 by akasiota      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stddef.h>
 # include <stdlib.h>
+# include <errno.h>
 # include <limits.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
