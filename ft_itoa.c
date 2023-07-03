@@ -6,7 +6,7 @@
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/18 12:05:11 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/01/08 17:41:41 by akasiota      ########   odam.nl         */
+/*   Updated: 2023/07/03 15:26:38 by akasiota      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	chk_neg(char *s, long *n)
 	{
 		s[0] = '-';
 		*n = *n * (-1);
-	}	
+	}
 }
 
 char	*ft_itoa(int n)

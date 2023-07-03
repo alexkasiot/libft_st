@@ -6,7 +6,7 @@
 /*   By: akasiota <akasiota@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/30 00:41:47 by akasiota      #+#    #+#                 */
-/*   Updated: 2023/05/09 01:41:53 by lotse         ########   odam.nl         */
+/*   Updated: 2023/07/03 15:27:11 by akasiota      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static char	*get_return_line(char *line, size_t i)
 		{
 			i = i + 1;
 			break ;
-		}	
+		}
 		i = i + 1;
 	}
 	return_line = ft_calloc((i + 1), sizeof(char));
